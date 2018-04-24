@@ -1,6 +1,6 @@
 {
   "name": "youtube-playlist-summary",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Youtube playlist summary",
   "main": "index.js",
   "scripts": {

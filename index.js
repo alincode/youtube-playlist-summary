@@ -82,12 +82,13 @@ class PlaylistSummary {
 
   async getSummary(channelId) {
     let playlists = await this.getPlaylists(channelId);
-    console.dir(playlists);
     let results = [];
 
     for(let item of playlists.items) {
       let result = await this.getPlaylistItems(item.playlistId);
-      results.push(result);
+      result.title = item.title;
+      result.playlistUrl = item.playlistUrl;
+      if (result.total != 0) results.push(result);
     }
     return results;
   }

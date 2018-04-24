@@ -23,4 +23,16 @@ describe('# index', function () {
     let KESY = ['publishedAt', 'title', 'description', 'playlistId', 'playlistUrl'];
     result.items[0].should.to.have.all.keys(KESY);
   });
+
+  it('getSummary', async function () {
+    const CHANNEL_ID = 'UCJi9ZAuo99MqMuJUXiJjpsA';
+    let result = await ps.getSummary(CHANNEL_ID);
+    result.should.be.a('array');
+    let KEY1 = ['total', 'items', 'title', 'playlistUrl'];
+    result[0].should.to.have.all.keys(KEY1);
+    result[0].total.should.be.a('number');
+    result[0].items.should.be.a('array');
+    let KEY2 = ['publishedAt', 'title', 'description', 'videoId', 'videoUrl'];
+    result[0].items[0].should.to.have.all.keys(KEY2);
+  });
 });
