@@ -17,6 +17,13 @@ class PlaylistSummary {
   constructor(config) {
     debug("config", config);
     this.GOOOGLE_API_KEY = process.env.GOOOGLE_API_KEY || config.GOOOGLE_API_KEY;
+
+    if (!this.GOOOGLE_API_KEY) {
+      throw new Error('missing required Youtube API key')
+    } else {
+      debug('GOOOGLE_API_KEY: ', this.GOOOGLE_API_KEY);
+    }
+    
     this.ENV = config.ENV;
 
     resetToDefault({
