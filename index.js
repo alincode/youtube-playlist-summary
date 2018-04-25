@@ -36,13 +36,14 @@ class PlaylistSummary {
     return newItems;
   }
 
-  async getPlaylistItems(playlistId) {
+  async getPlaylistItems(playlistId, title, playlistUrl) {
     try {
       let params = resetToDefault({ key: this.GOOOGLE_API_KEY, playlistId });
       const options = { url: `${API_URL_BASE}playlistItems`, method: 'get', params };
       let { data } = await axios(options);
       let { pageInfo, items} = data;
       let result = {
+        playlistId, title, playlistUrl,
         total: pageInfo.totalResults,
         items: this.pickPlaylistItems(items)
       }
@@ -83,13 +84,17 @@ class PlaylistSummary {
   async getSummary(channelId) {
     let playlists = await this.getPlaylists(channelId);
     let results = [];
+    let promises = [];
 
-    for(let item of playlists.items) {
-      let result = await this.getPlaylistItems(item.playlistId);
-      result.title = item.title;
-      result.playlistUrl = item.playlistUrl;
-      if (result.total != 0) results.push(result);
+    for (let item of playlists.items) {
+      const promise = this.getPlaylistItems(item.playlistId, item.title, item.playlistUrl );
+      promises.push(promise);
     }
+    await Promise.all(promises).then(function (newPlaylists) {
+      let Filterable = item => item.total != 0;
+      results = R.filter(Filterable, newPlaylists);
+    });
+    console.dir(results);
     return results;
   }
 }
