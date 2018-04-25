@@ -16,7 +16,7 @@ class PlaylistSummary {
 
   constructor(config) {
     debug("config", config);
-    this.GOOOGLE_API_KEY = config.GOOOGLE_API_KEY;
+    this.GOOOGLE_API_KEY = process.env.GOOOGLE_API_KEY || config.GOOOGLE_API_KEY;
     this.ENV = config.ENV;
 
     resetToDefault({
