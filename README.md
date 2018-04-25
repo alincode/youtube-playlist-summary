@@ -3,13 +3,17 @@
 ### Features
 
 * it could help you easy to get all playlist informations.
+
+### Requirements
+
+* node 8.x.x
 ### Install
 
 ```
 $ npm install --save youtube-playlist-summary
 ```
 
-### Example
+### Usage
 
 ```js
 const CHANNEL_ID = 'UCQCaS3atWyNHEy5PkDXdpNg';
@@ -33,3 +37,7 @@ ps.getSummary(CHANNEL_ID).then(result => {
   console.error(error);
 });
 ```
+
+## License
+
+[MIT](LICENSE)
