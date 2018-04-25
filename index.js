@@ -47,6 +47,8 @@ class PlaylistSummary {
         total: pageInfo.totalResults,
         items: this.pickPlaylistItems(items)
       }
+      if (title) result.title = title;
+      if (playlistUrl) result.playlistUrl = playlistUrl;
       return result;
     } catch (error) {
       throw error;
@@ -94,7 +96,6 @@ class PlaylistSummary {
       let Filterable = item => item.total != 0;
       results = R.filter(Filterable, newPlaylists);
     });
-    console.dir(results);
     return results;
   }
 }
