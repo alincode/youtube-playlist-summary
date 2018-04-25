@@ -4,7 +4,7 @@
   "description": "Youtube playlist summary",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "dev-test": "mocha"
   },
   "repository": {
     "type": "git",
