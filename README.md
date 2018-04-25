@@ -1,8 +1,12 @@
 # youtube playlist summary
 
-### Features
+<p align="center">
+it could help you easy to get all playlist informations.
+</p>
 
-* it could help you easy to get all playlist informations.
+<p align="center">
+[![Build Status](https://travis-ci.org/alincode/youtube-playlist-summary.svg?branch=master)](https://travis-ci.org/alincode/youtube-playlist-summary)
+</p>
 
 ### Requirements
 
