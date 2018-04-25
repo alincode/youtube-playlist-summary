@@ -5,7 +5,7 @@ it could help you easy to get all playlist informations.
 </p>
 
 <p align="center">
-[![Build Status](https://travis-ci.org/alincode/youtube-playlist-summary.svg?branch=master)](https://travis-ci.org/alincode/youtube-playlist-summary)
+![Build Status](https://travis-ci.org/alincode/youtube-playlist-summary.svg?branch=master)](https://travis-ci.org/alincode/youtube-playlist-summary)
 </p>
 
 ### Requirements
