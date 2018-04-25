@@ -1,5 +1,8 @@
 # youtube playlist summary
 
+### Features
+
+* it could help you easy to get all playlist informations.
 ### Install
 
 ```
