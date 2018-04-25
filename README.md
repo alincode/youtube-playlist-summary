@@ -4,10 +4,7 @@
 it could help you easy to get all playlist informations.
 </p>
 
-<p align="center">
-  <a href="http://travis-ci.org/alincode/youtube-playlist-summary"><img src="https://api.travis-ci.org/alincode/youtube-playlist-summary.svg?branch=master" alt="Build Status"></a>
-</p>
-
+![Travis](https://img.shields.io/travis/alincode/youtube-playlist-summary.svg)
 [![](https://img.shields.io/github/release/alincode/youtube-playlist-summary.svg)](https://github.com/alincode/youtube-playlist-summary/releases)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Dependency Status](https://img.shields.io/david/alincode/youtube-playlist-summary.svg?style=flat)](https://david-dm.org/alincode/youtube-playlist-summary)
