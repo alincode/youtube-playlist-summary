@@ -5,10 +5,11 @@ it could help you easy to get all playlist informations.
 </p>
 
 ![Travis](https://img.shields.io/travis/alincode/youtube-playlist-summary.svg)
-[![](https://img.shields.io/github/release/alincode/youtube-playlist-summary.svg)](https://github.com/alincode/youtube-playlist-summary/releases)
+![GitHub release](https://img.shields.io/github/release/alincode/youtube-playlist-summary.svg)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Dependency Status](https://img.shields.io/david/alincode/youtube-playlist-summary.svg?style=flat)](https://david-dm.org/alincode/youtube-playlist-summary)
-[![Downloads](https://img.shields.io/npm/dt/youtube-playlist-summary.svg)](https://www.npmjs.com/package/youtube-playlist-summary) 
+![npm](https://img.shields.io/npm/dm/youtube-playlist-summary.svg)
+![node](https://img.shields.io/node/v/youtube-playlist-summary.svg)
 
 
 ### Requirements
