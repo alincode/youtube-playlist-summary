@@ -27,12 +27,14 @@ describe('# index', function () {
   it('getSummary', async function () {
     const CHANNEL_ID = 'UCJi9ZAuo99MqMuJUXiJjpsA';
     let result = await ps.getSummary(CHANNEL_ID);
-    result.should.be.a('array');
-    let KEY1 = ['total', 'items', 'title', 'playlistId', 'playlistUrl'];
-    result[0].should.to.have.all.keys(KEY1);
-    result[0].total.should.be.a('number');
-    result[0].items.should.be.a('array');
-    let KEY2 = ['publishedAt', 'title', 'description', 'videoId', 'videoUrl'];
-    result[0].items[0].should.to.have.all.keys(KEY2);
+    let KEY1 = ['channelId', 'channelUrl', 'title', 'description', 'items', 'videoCount'];
+    result.should.to.have.all.keys(KEY1);
+    result.items.should.be.a('array');
+    let KEY2 = ['total', 'items', 'title', 'playlistId', 'playlistUrl'];
+    result.items[0].should.to.have.all.keys(KEY2);
+    result.items[0].total.should.be.a('number');
+    result.items[0].items.should.be.a('array');
+    let KEY3 = ['publishedAt', 'title', 'description', 'videoId', 'videoUrl'];
+    result.items[0].items[0].should.to.have.all.keys(KEY3);
   });
 });

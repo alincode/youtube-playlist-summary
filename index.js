@@ -12,6 +12,11 @@ const resetToDefault = R.merge(R.__, {
   maxResults: 50
 });
 
+const resetToChannelDefault = R.merge(R.__, {
+  part: 'snippet, statistics',
+  maxResults: 50
+});
+
 class PlaylistSummary {
 
   constructor(config) {
@@ -90,20 +95,44 @@ class PlaylistSummary {
     }
   }
 
+  async getChannel(channelId) {
+    try {
+      let params = resetToChannelDefault({ key: this.GOOOGLE_API_KEY, id: channelId });
+      const options = { url: `${API_URL_BASE}channels`, method: 'get', params };
+      let { data } = await axios(options);
+      let { items } = data;
+      let result = {
+        channelId,
+        channelUrl: CHANNEL_URL_FORMAT + channelId,
+        title: items[0].snippet.title,
+        description: items[0].snippet.description,
+        videoCount: items[0].statistics.videoCount
+      }
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getSummary(channelId) {
     let playlists = await this.getPlaylists(channelId);
-    let results = [];
     let promises = [];
 
     for (let item of playlists.items) {
       const promise = this.getPlaylistItems(item.playlistId, item.title, item.playlistUrl );
       promises.push(promise);
     }
+
+    let items = [];
+    let result = {};
+
     await Promise.all(promises).then(function (newPlaylists) {
       let Filterable = item => item.total != 0;
-      results = R.filter(Filterable, newPlaylists);
+      result.items = R.filter(Filterable, newPlaylists);
     });
-    return results;
+    result = R.merge(await this.getChannel(channelId), result);
+
+    return result;
   }
 }
 
