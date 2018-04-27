@@ -48,23 +48,27 @@ class PlaylistSummary {
     return newItems;
   }
 
-  async getPlaylistItems(playlistId, title, playlistUrl) {
+  async getPlaylistItems(playlistId, playlistTitle, playlistUrl) {
     try {
       let params = resetToDefault({ key: this.GOOOGLE_API_KEY, playlistId });
       const options = { url: `${API_URL_BASE}playlistItems`, method: 'get', params };
       let { data } = await axios(options);
       let { pageInfo, items} = data;
-      let result = {
-        playlistId, title, playlistUrl,
+      const result = {
+        playlistId,
+        title: await this.getPlaylistTitle(playlistId, playlistTitle),
+        playlistUrl: this.getPlaylistUrl(playlistId),
         total: pageInfo.totalResults,
         items: this.pickPlaylistItems(items)
       }
-      if (title) result.title = title;
-      if (playlistUrl) result.playlistUrl = playlistUrl;
       return result;
     } catch (error) {
       throw error;
     }
+  }
+
+  getPlaylistUrl(playlistId) {
+    return PLAY_LIST_URL_FORMAT + playlistId;
   }
 
   pickPlaylists(items) {
@@ -73,10 +77,19 @@ class PlaylistSummary {
     for (let item of items) {
       let newItem = R.pick(['publishedAt', 'title', 'description'], item.snippet);
       newItem.playlistId = item.id;
-      newItem.playlistUrl = PLAY_LIST_URL_FORMAT + item.id;
+      newItem.playlistUrl = this.getPlaylistUrl(playlistId);
       newItems.push(newItem);
     }
     return newItems;
+  }
+
+  async getPlaylistTitle(playlistId, playlistTitle) {
+    if (playlistTitle) return playlistTitle;
+    let params = resetToDefault({ key: this.GOOOGLE_API_KEY, id: playlistId });
+    const options = { url: `${API_URL_BASE}playlists`, method: 'get', params };
+    const { data } = await axios(options);
+    const { items } = data;
+    return items[0].snippet.title;
   }
 
   async getPlaylists(channelId) {
