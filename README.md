@@ -8,7 +8,7 @@
 <!-- ![npm downloads](https://img.shields.io/npm/dm/youtube-playlist-summary.svg) -->
 
 <p align="center">
-it could help you easy to get all playlist informations.
+it could help you easy to get all playlists informations.
 </p>
 
 ### Requirements

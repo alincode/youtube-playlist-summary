@@ -1,7 +1,7 @@
 {
   "name": "youtube-playlist-summary",
-  "version": "0.2.2",
-  "description": "Youtube playlist summary",
+  "version": "0.2.3",
+  "description": "it could help you easy to get all playlists informations.",
   "main": "index.js",
   "scripts": {
     "dev-test": "mocha"
