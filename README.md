@@ -55,4 +55,4 @@ ps.getSummary(CHANNEL_ID).then(result => {
 
 ## License
 
-[MIT](LICENSE)
+MIT © [alincode](https://github.com/alincode/youtube-playlist-summary)
