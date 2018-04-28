@@ -1,6 +1,6 @@
 {
   "name": "youtube-playlist-summary",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "it could help you easy to get all playlists informations.",
   "main": "index.js",
   "scripts": {
