@@ -14,7 +14,11 @@
     "youtube",
     "palylist"
   ],
-  "author": "alincode <alincode@gmail.com>",
+  "author": {
+    "name": "alincode",
+    "email": "alincode@gmail.com",
+    "url": "https://github.com/alincode"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alincode/youtube-playlist-summary/issues"

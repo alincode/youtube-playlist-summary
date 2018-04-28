@@ -77,7 +77,7 @@ class PlaylistSummary {
     for (let item of items) {
       let newItem = R.pick(['publishedAt', 'title', 'description'], item.snippet);
       newItem.playlistId = item.id;
-      newItem.playlistUrl = this.getPlaylistUrl(playlistId);
+      newItem.playlistUrl = this.getPlaylistUrl(item.id);
       newItems.push(newItem);
     }
     return newItems;
