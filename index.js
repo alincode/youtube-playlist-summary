@@ -55,8 +55,11 @@ class PlaylistSummary {
       let { data } = await axios(options);
       let { pageInfo, items} = data;
       const result = {
-        playlistId,
-        title: await this.getPlaylistTitle(playlistId, playlistTitle),
+        channelId: items[0].snippet.channelId,
+        channelTitle: items[0].snippet.channelTitle,
+        channelUrl: this.getChannelUrl(items[0].snippet.channelId),
+        playlistId: playlistId,
+        playlistTitle: await this.getPlaylistTitle(playlistId, playlistTitle),
         playlistUrl: this.getPlaylistUrl(playlistId),
         total: pageInfo.totalResults,
         items: this.pickPlaylistItems(items)
@@ -69,6 +72,10 @@ class PlaylistSummary {
 
   getPlaylistUrl(playlistId) {
     return PLAY_LIST_URL_FORMAT + playlistId;
+  }
+
+  getChannelUrl(channelId) {
+    return CHANNEL_URL_FORMAT + channelId;
   }
 
   pickPlaylists(items) {
@@ -94,11 +101,15 @@ class PlaylistSummary {
 
   async getPlaylists(channelId) {
     try {
+      let channel = await this.getChannel(channelId);
       let params = resetToDefault({ key: this.GOOOGLE_API_KEY, channelId });
       const options = { url: `${API_URL_BASE}playlists`, method: 'get', params };
       let { data } = await axios(options);
       let { pageInfo, items } = data;
       let result = {
+        channelId: channel.id,
+        channelTitle: channel.title,
+        channelUrl: channel.url,
         total: pageInfo.totalResults,
         items: this.pickPlaylists(items)
       }
@@ -115,15 +126,25 @@ class PlaylistSummary {
       let { data } = await axios(options);
       let { items } = data;
       let result = {
-        channelId,
-        channelUrl: CHANNEL_URL_FORMAT + channelId,
+        id: channelId,
         title: items[0].snippet.title,
+        url: CHANNEL_URL_FORMAT + channelId,
         description: items[0].snippet.description,
         videoCount: items[0].statistics.videoCount
       }
       return result;
     } catch (error) {
       throw error;
+    }
+  }
+
+  convertChannelObject(channel) {
+    return {
+      channelId: channel.id,
+      channelTitle: channel.title,
+      channelUrl: channel.url,
+      description: channel.description,
+      videoCount: channel.videoCount
     }
   }
 
@@ -143,8 +164,8 @@ class PlaylistSummary {
       let Filterable = item => item.total != 0;
       result.items = R.filter(Filterable, newPlaylists);
     });
-    result = R.merge(await this.getChannel(channelId), result);
-
+    let channel = await this.getChannel(channelId);
+    result = R.merge(this.convertChannelObject(channel), result);
     return result;
   }
 }
