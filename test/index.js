@@ -1,5 +1,9 @@
 const PlaylistSummary = require('../index.js');
-const config = require('config');
+
+let config = {
+  GOOOGLE_API_KEY: process.env.GOOOGLE_API_KEY
+};
+
 const ps = new PlaylistSummary(config);
 const chai = require('chai');
 const should = chai.should();

@@ -4,7 +4,8 @@
   "description": "it could help you easy to get all playlists informations.",
   "main": "index.js",
   "scripts": {
-    "dev-test": "mocha"
+    "test": "mocha",
+    "release": "rm -rf package-lock.json && npm version minor && npm publish"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,6 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "config": "^1.30.0",
     "eslint": "^4.19.1",
     "eslint-plugin-mocha": "^5.0.0",
     "mocha": "^5.1.1"
