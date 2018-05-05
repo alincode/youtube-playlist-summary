@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Dependency Status](https://img.shields.io/david/alincode/youtube-playlist-summary.svg?style=flat)](https://david-dm.org/alincode/youtube-playlist-summary)
 ![node version](https://img.shields.io/node/v/youtube-playlist-summary.svg)
-<!-- ![npm downloads](https://img.shields.io/npm/dm/youtube-playlist-summary.svg) -->
+![npm downloads](https://img.shields.io/npm/dt/youtube-playlist-summary.svg)
 
 <p align="center">
 it could help you easy to get all playlists informations.
