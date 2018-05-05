@@ -78,7 +78,7 @@ describe('# index', function () {
       let ps2 = new PlaylistSummary({ GOOGLE_API_KEY: '123'});
       await ps2.getPlaylistItems('123');
     } catch (error) {
-      expect(error.message).to.be.equal('Request failed with status code 400');
+      expect(error.message).to.be.equal('Request failed with status code 404');
     }
   });
 });
