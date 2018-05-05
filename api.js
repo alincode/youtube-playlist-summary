@@ -6,10 +6,8 @@ const maxResults = 50;
 
 class API {
 
-  constructor(config) {
-    this.GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || config.GOOGLE_API_KEY;
-    if (!this.GOOGLE_API_KEY) throw new Error('missing required Youtube API key');
-
+  constructor(GOOGLE_API_KEY) {
+    this.GOOGLE_API_KEY = GOOGLE_API_KEY;
     this.resetToDefault = R.merge(R.__, {
       part: 'snippet,contentDetails',
       maxResults,

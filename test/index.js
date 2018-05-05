@@ -6,6 +6,7 @@ let config = {
 
 const ps = new PlaylistSummary(config);
 const chai = require('chai');
+var expect = chai.expect;
 chai.should();
 
 const PLAYLIST_ITEM_KEY = ['publishedAt', 'title', 'description', 'videoId', 'videoUrl'];
@@ -62,5 +63,22 @@ describe('# index', function () {
     result.items[0].total.should.be.a('number');
     result.items[0].items.should.be.a('array');
     result.items[0].items[0].should.to.have.all.keys(PLAYLIST_ITEM_KEY);
+  });
+
+  it('missing key', async function () {
+    try {
+      new PlaylistSummary();
+    } catch (error) {
+      expect(error.message).to.be.equal('missing required Youtube API key');
+    }
+  });
+
+  it('key is incorrect', async function () {
+    try {
+      let ps2 = new PlaylistSummary({ GOOGLE_API_KEY: '123'});
+      await ps2.getPlaylistItems('123');
+    } catch (error) {
+      expect(error.message).to.be.equal('Request failed with status code 400');
+    }
   });
 });
