@@ -13,7 +13,8 @@ const PLAYLIST_ITEM_KEY = ['publishedAt', 'title', 'description', 'videoId', 'vi
 describe('# index', function () {
 
   it.only('getPlaylistItems', async function () {
-    const PLAY_LIST_ID = 'PLWKjhJtqVAbkOoQw0jDWn-pzN3nFVjhbH';
+    this.timeout(10000);
+    const PLAY_LIST_ID = 'PL6B08BAA57B5C7810';
     let result = await ps.getPlaylistItems(PLAY_LIST_ID);
     // console.dir(result);
     let KESY1 = ['channelId', 'channelTitle', 'channelUrl', 'playlistId', 'playlistTitle', 'playlistUrl', 'items', 'total'];
