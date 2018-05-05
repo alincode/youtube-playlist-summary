@@ -12,7 +12,7 @@ const PLAYLIST_ITEM_KEY = ['publishedAt', 'title', 'description', 'videoId', 'vi
 
 describe('# index', function () {
 
-  it.only('getPlaylistItems', async function () {
+  it('getPlaylistItems', async function () {
     this.timeout(10000);
     const PLAY_LIST_ID = 'PL6B08BAA57B5C7810';
     let result = await ps.getPlaylistItems(PLAY_LIST_ID);
