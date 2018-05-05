@@ -3,6 +3,7 @@ node_js:
   - "7.6"
   - "8"
 install:
+  - npm install -g istanbul
   - npm install -g codecov
 script:
   - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
