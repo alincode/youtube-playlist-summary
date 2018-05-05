@@ -7,22 +7,22 @@ const maxResults = 50;
 class API {
 
   constructor(config) {
-    this.GOOOGLE_API_KEY = process.env.GOOOGLE_API_KEY || config.GOOOGLE_API_KEY;
-    if (!this.GOOOGLE_API_KEY) throw new Error('missing required Youtube API key');
+    this.GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || config.GOOGLE_API_KEY;
+    if (!this.GOOGLE_API_KEY) throw new Error('missing required Youtube API key');
 
     this.resetToDefault = R.merge(R.__, {
       part: 'snippet,contentDetails',
       maxResults,
-      key: this.GOOOGLE_API_KEY
+      key: this.GOOGLE_API_KEY
     });
 
     this.resetToChannelDefault = R.merge(R.__, {
       part: 'snippet, statistics',
       maxResults,
-      key: this.GOOOGLE_API_KEY
+      key: this.GOOGLE_API_KEY
     });
 
-    debug('GOOOGLE_API_KEY: ', this.GOOOGLE_API_KEY);
+    debug('GOOGLE_API_KEY: ', this.GOOGLE_API_KEY);
   }
 
   async channel(channelId) {

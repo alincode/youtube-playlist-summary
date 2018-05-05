@@ -1,7 +1,7 @@
 const PlaylistSummary = require('../index.js');
 
 let config = {
-  GOOOGLE_API_KEY: process.env.GOOOGLE_API_KEY
+  GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
 };
 
 const ps = new PlaylistSummary(config);
