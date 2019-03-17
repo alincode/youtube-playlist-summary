@@ -3,7 +3,7 @@
 ![Travis](https://img.shields.io/travis/alincode/youtube-playlist-summary.svg)
 [![codecov](https://codecov.io/gh/alincode/youtube-playlist-summary/branch/master/graph/badge.svg)](https://codecov.io/gh/alincode/youtube-playlist-summary)
 ![GitHub package version](https://img.shields.io/github/package-json/v/alincode/youtube-playlist-summary.svg)
-[![Dependency Status](https://img.shields.io/david/alincode/youtube-playlist-summary.svg?style=flat)](https://david-dm.org/alincode/youtube-playlist-summary)
+[![Dependency Status](https://img.shields.io/david/alincode/youtube-playlist-summary.svg?style=flat)](https://david-dm.org/alincode/youtube-playlist-summary) [![Greenkeeper badge](https://badges.greenkeeper.io/alincode/youtube-playlist-summary.svg)](https://greenkeeper.io/)
 ![npm downloads](https://img.shields.io/npm/dt/youtube-playlist-summary.svg)
 
 <p align="center">
