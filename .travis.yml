@@ -3,4 +3,5 @@ node_js:
   - "7.6"
   - "8"
 script:
-  - npm run test:coverage
+  - npm run coverage
+  - npm run report-coverage

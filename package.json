@@ -4,8 +4,10 @@
   "description": "it could help you easy to get all playlists informations.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test:coverage": "istanbul cover node_modules/mocha/bin/_mocha && codecov",
+    "test": "mocha -t 5s",
+    "coverage": "nyc --reporter=html --reporter=text mocha -t 5s",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "open": "open coverage/index.html",
     "release": "rm -rf package-lock.json && npm version minor && npm publish",
     "patch": "rm -rf package-lock.json && npm version patch && npm publish"
   },
@@ -29,8 +31,8 @@
   "homepage": "https://github.com/alincode/youtube-playlist-summary#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "debug": "^3.1.0",
-    "ramda": "^0.25.0"
+    "debug": "^4.1.0",
+    "ramda": "^0.26.1"
   },
   "engines": {
     "node": ">= 8"
@@ -38,9 +40,9 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "codecov": "^3.0.1",
-    "eslint": "^5.3.0",
+    "eslint": "^5.9.0",
     "eslint-plugin-mocha": "^5.0.0",
-    "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^5.1.1"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   }
 }
