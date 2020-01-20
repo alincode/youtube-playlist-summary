@@ -5,10 +5,9 @@ const CHANNEL_URL_FORMAT = 'https://www.youtube.com/channel/';
 const PLAY_LIST_URL_FORMAT = 'https://www.youtube.com/playlist?list=';
 const VIDEO_URL_FORMAT = 'https://www.youtube.com/watch?v=';
 
-
 class Format {
 
-  constructor() {}
+  constructor(config) {this.config = config}
 
   getVideoUrl(video) { return VIDEO_URL_FORMAT + video; }
   getPlaylistUrl(playlistId) { return PLAY_LIST_URL_FORMAT + playlistId; }
@@ -58,7 +57,7 @@ class Format {
     let newItems = [];
     debug('=== pickPlaylists ===');
     for (let item of items) {
-      let newItem = R.pick(['publishedAt', 'title', 'description'], item.snippet);
+      let newItem = R.pick(this.config.PLAYLIST_ITEM_KEY, item.snippet);
       const playlistId = item.id;
       newItem.playlistId = playlistId;
       newItem.playlistUrl = this.getPlaylistUrl(playlistId);
@@ -70,7 +69,7 @@ class Format {
   pickPlaylistItems(items) {
     let newItems = [];
     for (let item of items) {
-      let newItem = R.pick(['publishedAt', 'title', 'description'], item.snippet);
+      let newItem = R.pick(this.config.PLAYLIST_ITEM_KEY, item.snippet);
       const videoId = item.snippet.resourceId.videoId;
       newItem.videoId = videoId;
       newItem.videoUrl = this.getVideoUrl(videoId);
