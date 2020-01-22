@@ -2,6 +2,7 @@ const PlaylistSummary = require('../index.js');
 
 let config = {
   GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
+  PLAYLIST_ITEM_KEY: ['publishedAt', 'title', 'description', 'videoId', 'videoUrl']
 };
 
 const ps = new PlaylistSummary(config);
