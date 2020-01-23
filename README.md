@@ -12,7 +12,8 @@ it could help you easy to get all playlists informations.
 
 ### Requirements
 
-* node 7.6.x
+- node 7.6.x
+
 ### Install
 
 ```
@@ -21,36 +22,42 @@ $ npm install --save youtube-playlist-summary
 
 ### Usage
 
-* [How to Get YouTube API Key - Easy way - YouTube](https://www.youtube.com/watch?v=_U_VS12uu-o)
+- [How to Get YouTube API Key - Easy way - YouTube](https://www.youtube.com/watch?v=_U_VS12uu-o)
 
 ```js
-const PlaylistSummary = require('youtube-playlist-summary');
+const PlaylistSummary = require('youtube-playlist-summary')
 const config = {
-    "GOOGLE_API_KEY": "YOUR_GOOGLE_API_KEY"
-    "PLAYLIST_ITEM_KEY": ['publishedAt', 'title', 'description', 'videoId', 'videoUrl']
-};
+  GOOGLE_API_KEY: 'YOUR_GOOGLE_API_KEY',
+  PLAYLIST_ITEM_KEY: ['publishedAt', 'title', 'description', 'videoId', 'videoUrl'],
+}
 
-const ps = new PlaylistSummary(config);
-const CHANNEL_ID = 'UCQCaS3atWyNHEy5PkDXdpNg';
-const PLAY_LIST_ID = 'PL9f8_QifuTL4CS8-OyA-4WADhkddOnRS4';
+const ps = new PlaylistSummary(config)
+const CHANNEL_ID = 'UCQCaS3atWyNHEy5PkDXdpNg'
+const PLAY_LIST_ID = 'PL9f8_QifuTL4CS8-OyA-4WADhkddOnRS4'
 
-ps.getPlaylistItems(PLAY_LIST_ID).then(result => {
-  console.log(result);
-}).catch(error => {
-  console.error(error);
-});
+ps.getPlaylistItems(PLAY_LIST_ID)
+  .then((result) => {
+    console.log(result)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 
-ps.getPlaylists(CHANNEL_ID).then(result => {
-  console.log(result);
-}).catch(error => {
-  console.error(error);
-});
+ps.getPlaylists(CHANNEL_ID)
+  .then((result) => {
+    console.log(result)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 
-ps.getSummary(CHANNEL_ID).then(result => {
-  console.log(result);
-}).catch(error => {
-  console.error(error);
-});
+ps.getSummary(CHANNEL_ID)
+  .then((result) => {
+    console.log(result)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 ```
 
 ## License
