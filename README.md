@@ -27,8 +27,8 @@ $ npm install --save youtube-playlist-summary
 ```js
 const PlaylistSummary = require('youtube-playlist-summary')
 const config = {
-  GOOGLE_API_KEY: 'YOUR_GOOGLE_API_KEY',
-  PLAYLIST_ITEM_KEY: ['publishedAt', 'title', 'description', 'videoId', 'videoUrl'],
+  GOOGLE_API_KEY: 'YOUR_GOOGLE_API_KEY', // require
+  PLAYLIST_ITEM_KEY: ['publishedAt', 'title', 'description', 'videoId', 'videoUrl'], // option
 }
 
 const ps = new PlaylistSummary(config)
