@@ -12,7 +12,7 @@ it could help you easy to get all playlists informations.
 
 ### Requirements
 
-- node 7.6.x
+- node 8.x
 
 ### Install
 
