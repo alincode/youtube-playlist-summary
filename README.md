@@ -22,7 +22,7 @@ $ npm install --save youtube-playlist-summary
 
 ### Usage
 
-- [How to Get YouTube API Key - Easy way - YouTube](https://www.youtube.com/watch?v=_U_VS12uu-o)
+- [How to get Youtube API key | step by step | 2020 - YouTube](https://www.youtube.com/watch?v=sVEytWDWYwM)
 
 ```js
 const PlaylistSummary = require('youtube-playlist-summary')

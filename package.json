@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/alincode/youtube-playlist-summary#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "0.21.1",
     "debug": "^4.3.2",
     "ramda": "^0.27.1"
   },
